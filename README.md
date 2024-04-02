@@ -3,7 +3,7 @@ This Logic App provides users with a propositional formal logic quiz.
 
 ## Introduction
 ***
-* This application can work on-line or off-line. The front-end is developed using Flutter, while the server-side is written in Golang. It utilizes a local MySQL database to persist statistics.
+* This application has a login mechanism and can work on-line or off-line. The front-end is developed using Flutter, while the server-side is written in Golang. It utilizes a local MySQL database to persist statistics.
 
 ## Features 
 ***
