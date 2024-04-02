@@ -1,0 +1,9 @@
+Database:
+  Username: Your Username
+  Password: Your Password
+  Host: 127.0.0.1
+  Port: Your Port
+  DBName: LogicApp
+Generator:
+  NumberOfMedium:  20
+  NumberOfHard:    20

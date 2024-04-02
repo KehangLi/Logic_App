@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin-Questions</title>
+
+    <!--    creat css-->
+    <style>
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th,td{
+            border: 1px solid #ddd;
+            text-align: center;
+            padding: 8px;
+        }
+        th {
+            background-color: #fab6b6;
+        }
+        button{
+            margin-left: 5px;
+        }
+    </style>
+
+    <script src="../static/js/jquery-3.7.1.js"></script>
+    <script src="../static/js/jquery.tablesorter.js"></script>
+    <script src="../static/js/question_management.js"></script>
+
+</head>
+<body>
+
+<div style="text-align: center;">
+    <header> Welcome to the Questions Management System</header>
+    <input type="hidden" id="port" value="{{.port}}"/>
+</div>
+
+<table   id="questionTable" class="tablesorter" data-sortlist="[[0,0],[2,0]]">
+    <thead>
+    <tr>
+        <td>Id</td>
+        <td>Text</td>
+        <td>A</td>
+        <td>B</td>
+        <td>C</td>
+        <td>D</td>
+        <td>Answer</td>
+        <td>DifficultyLevel<span class="arrow asc"></span><span class="arrow dsc"></span></td>
+        <td>TotalTryNum</td>
+        <td>CorrectTryNum</td>
+        <td>ConsumingTime(ms)</td>
+        <td>correctness<span class="arrow asc"></span><span class="arrow dsc"></span></td>
+        <td>averageTime(ms)<span class="arrow asc"></span><span class="arrow dsc"></span></td>
+        <td>delete</td>
+    </tr>
+    </thead>
+    <tbody>
+    {{range $i,$v := .questions}}
+    <tr id="question{{$v.Question.Id}}">
+        <td class="ID" id="ID{{$v.Question.Id}}-id">{{$v.Question.Id}}</td>
+        <td class="questionText" id="questionText{{$v.Question.Id}}-id">{{$v.Question.Text}}</td>
+        <td class="answerA" id="answerA{{$v.Question.Id}}-id">{{$v.Question.A}}</td>
+        <td class="answerB" id="answerB{{$v.Question.Id}}-id">{{$v.Question.B}}</td>
+        <td class="answerC" id="answerC{{$v.Question.Id}}-id">{{$v.Question.C}}</td>
+        <td class="answerD" id="answerD{{$v.Question.Id}}-id">{{$v.Question.D}}</td>
+        <td class="correctAnswer" id="correctAnswer{{$v.Question.Id}}-id">{{$v.Question.Answer}}</td>
+        <td class="difficultyLevel" id="difficultyLevel{{$v.Question.Id}}-id">{{$v.Question.DifficultyLevel}}</td>
+        <td class="totalTryNum" id="totalTryNum{{$v.Question.Id}}-id">{{$v.Question.TotalTryNum}}</td>
+        <td class="correctTryNum" id="correctTryNum{{$v.Question.Id}}-id">{{$v.Question.CorrectTryNum}}</td>
+        <td class="totalTime" id="totalTime{{$v.Question.Id}}-id">{{$v.Question.ConsumingTime}}</td>
+        <td class="correctness" id="correctness{{$v.Question.Id}}-id">{{$v.Correctness}}</td>
+        <td class="avgTime" id="avgTime{{$v.Question.Id}}-id">{{$v.AverageTime}}</td>
+        <td class="delete"><button class="deleteBtn" questionId="{{$v.Question.Id}}" id="delete{{$v.Question.Id}}-id">delete</button></td>
+    </tr>
+    {{end}}
+    </tbody>
+</table>
+
+<button id="addRow">+</button>
+
+</body>
+</html>
+
+<script type="text/javascript">
+    $("#questionTable").tablesorter();
+</script>
+
+
+<!-- ref: https://blog.csdn.net/dream0352/article/details/50284321-->

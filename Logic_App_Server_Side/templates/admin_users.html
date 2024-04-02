@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin-Users</title>
+
+<!--    creat css-->
+    <style>
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th,td{
+            border: 1px solid #ddd;
+            text-align: center;
+            padding: 8px;
+        }
+        th {
+            background-color: #fab6b6;
+        }
+        button{
+            margin-left: 5px;
+        }
+    </style>
+
+    <script src="../static/js/jquery-3.7.1.js"></script>
+    <script src="../static/js/user_management.js"></script>
+
+</head>
+<body>
+<div style="text-align: center;">
+    <header>Welcome to User Management System</header>
+    <input type="hidden" id="port" value="{{.port}}"/>
+</div>
+<table id = "UserTable">
+    <thead>
+    <tr>
+        <td>Username</td>
+        <td>Password</td>
+        <td>delete</td>
+        <td>resetPassword</td>
+    </tr>
+    </thead>
+    <!--     username and password-->
+    <tbody>
+    {{ range $i, $v := .users }}
+    <tr>
+        <td class = "Username">{{$v.Username}}</td>
+        <td class = "Password">{{$v.Password}}</td>
+        <td class="delete"><button class = "deleteBtn" user="{{$v.Username}}">delete</button></td>
+        <td class="reset"><button class = "resetBtn" user="{{$v.Username}}" >resetPassword</button></td>
+    </tr>
+    {{end}}
+    </tbody>
+
+</table>
+
+</body>
+</html>
