@@ -1,5 +1,5 @@
 # Logic App
-This Logic App provides users with a propositional formal logic quiz.
+This Logic App provides users with a propositional formal logic quiz, and adapts to three platforms: web, iOS, Android.
 
 ## Introduction
 ***
